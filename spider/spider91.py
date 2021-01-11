@@ -16,6 +16,7 @@ import time
 # BeautifulSoup , Scrapy
 # 爬虫、反爬虫、反反爬虫
 # 封IP-IP代理库
+# m3u8格式就是将MP4分割成多个ts视频文件
 class Spider():
     PATH = 'D:\\为爱鼓掌\\91\\'
     URL = 'http://www.91porn.com/v.php'
