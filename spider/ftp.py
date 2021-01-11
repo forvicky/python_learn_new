@@ -28,7 +28,7 @@ class Ftp():
     def upload_file(self, LocalFile, RemoteFile):
         print(LocalFile)
         if os.path.isfile(LocalFile) == False:
-            raise "这不是一个合法的文件路径"
+            raise "这不是一个合法的文件路径" + str(LocalFile)
         file_handler = open(LocalFile, "rb")
         self.ftp.storbinary('STOR '+RemoteFile, file_handler)
         file_handler.close()
@@ -36,7 +36,7 @@ class Ftp():
 
     def upload_file_tree(self, LocalDir, RemoteDir):
         if os.path.isdir(LocalDir) == False:
-            raise "这不是一个合法的文件夹路径"
+            raise "这不是一个合法的文件夹路径"+LocalDir
         LocalNames = os.listdir(LocalDir)
         self.ftp.cwd(RemoteDir)
         for Local in LocalNames:
