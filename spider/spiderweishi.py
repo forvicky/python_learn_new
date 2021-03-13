@@ -11,7 +11,7 @@ import re
 
 
 class Spider():
-    path="D:\\weishi\\"
+    path="D:\\weishi2\\"
     courListUrl="https://m.weishi100.com/m/course/courses"
     courDetailUrl="https://m.weishi100.com/m/course/download"
 

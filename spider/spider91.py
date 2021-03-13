@@ -188,13 +188,17 @@ class Spider():
 
     def m3u8file(self,path_url,file_name):
         result = []
-        f = open(file_name)
-        line = f.readline()
-        while line:
-            line = line.strip('\n')
-            if not line.startswith("#"):
-                result.append({'file_name': line, 'sour_url':path_url+line})
+
+        try:
+            f = open(file_name)
             line = f.readline()
+            while line:
+                line = line.strip('\n')
+                if not line.startswith("#"):
+                    result.append({'file_name': line, 'sour_url': path_url + line})
+                line = f.readline()
+        except:
+            print("m3u8没有下载成功")
 
         return result
 
@@ -258,6 +262,8 @@ class Spider():
 
                 all_ts_name=''
                 # 下载所有ts
+                os.system("del "+dir+"*.ts")
+
                 for ts in result:
                     all_ts_name+=dir+ts['file_name']+'|'
                     download_file = DownloadFile(dir, ts['file_name'],  ts['sour_url'])
